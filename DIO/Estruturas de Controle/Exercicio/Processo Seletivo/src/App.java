@@ -1,23 +1,61 @@
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        printSelected();
+        String[] candidates = candidateSelection();
+        printSelected(candidates);
+        System.out.println();
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("Start call to candidates...");
+        for (String candidate : candidates) {
+            if (candidate != null) {
+                call(candidate);
+
+            }
+        }
+
     }
 
-    static void printSelected() {
-        String[] candidates = candidateSelection();
+    static void call(String candidate) {
+        int attempts = 0;
+        boolean keepTrying = true;
+        boolean answered = false;
+
+        do {
+            answered = meet(candidate);
+            keepTrying = !answered;
+
+            if (keepTrying) {
+                attempts++;
+            }else{
+                System.out.println("Contact made");
+            }
+
+        } while (keepTrying && attempts < 3);
+        if(answered){
+            System.out.println("We managed to get in touch with "+ candidate +" in " + attempts + " attempts");
+        }else{
+            System.out.println("we couldn't get in touch with " + candidate);
+        }
+    }
+
+    static void printSelected(String[] candidates) {
+
         for (int i = 0; i < candidates.length; i++) {
             System.out.println("-------------------------------------------------------------");
             System.out.println("Candidate Number : " + (i + 1) + " Name : " + candidates[i]);
         }
 
         // ou com o For Each
-        System.out.println("----------------------FOR EACH ---------------------------------------");
         for (String candidate : candidates) {
-            
-            System.out.print(candidate + " | ");
+            // System.out.print(candidate + " | ");
         }
+    }
+
+    static boolean meet(String candidate) {
+        System.out.println("Calling to : " + candidate + "..............");
+        return new Random().nextInt(3) == 1;
     }
 
     static String[] candidateSelection() {
