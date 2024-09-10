@@ -1,27 +1,12 @@
-public class CheckingAccount {
-    
-    private int bankBranch;
-    private int accountNumber;
-    private double balance;
+public class CheckingAccount extends Account {
 
-    public int getBankBranch() {
-        return bankBranch;
+    @Override
+    public void printExtract() {
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println(String.format("Checking Account branch : %d ", super.bankBranch));
+        System.out.println(String.format("Checking Account Number : %d" , super.accountNumber));
+        System.out.println(String.format("Checking Account balance : %.2f " , super.balance));
     }
 
-    public int getAccountNumber() {
-        return accountNumber;
-    }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public void deposit() {
-    }
-
-    public void draw() {
-    }
-
-    public void transfer() {
-    }
 }

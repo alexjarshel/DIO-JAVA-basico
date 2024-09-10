@@ -1,28 +1,13 @@
-public class SavingsAccount {
+public class SavingsAccount extends Account {
 
-    private int bankBranch;
-    private int accountNumber;
-    private double balance;
-
-    public int getBankBranch() {
-        return bankBranch;
+    @Override
+    public void printExtract() {
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("Saving Account branch : " + super.bankBranch);
+        System.out.println("Saving Account Number : " + super.accountNumber);
+        System.out.println("Saving Account balance : " + super.balance);
     }
 
-    public int getAccountNumber() {
-        return accountNumber;
-    }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public void deposit() {
-    }
-
-    public void draw() {
-    }
-
-    public void transfer() {
-    }
 
 }
