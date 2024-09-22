@@ -13,7 +13,7 @@ public class No<T> {
         this.conteudo = conteudo;
     }
 
-    public Object getConteudo() {
+    public T getConteudo() {
         return conteudo;
     }   
     public void setConteudo(T conteudo) {
