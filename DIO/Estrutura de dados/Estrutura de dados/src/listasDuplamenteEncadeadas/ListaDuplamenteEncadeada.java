@@ -1,7 +1,5 @@
 package listasDuplamenteEncadeadas;
 
-import listas.No;
-
 public class ListaDuplamenteEncadeada<T> {
 
     private NoDuplo<T> primeiroNo;
