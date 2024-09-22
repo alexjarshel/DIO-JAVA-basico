@@ -7,7 +7,8 @@ public class Main {
 
         lista.add("ALex");
         lista.add("Teste");
-        System.out.println(lista.get(2));
+
+        System.out.println(lista);
 
     }
 }
